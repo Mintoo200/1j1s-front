@@ -16,7 +16,11 @@ import { RechercherSolutionLayout } from '~/client/components/layouts/Rechercher
 import {
 	RésultatRechercherSolution,
 } from '~/client/components/layouts/RechercherSolution/Résultat/RésultatRechercherSolution';
-import { LightHero } from '~/client/components/ui/Hero/LightHero';
+import {
+	LightHeroPrimaryText,
+	LightHeroSecondaryText,
+	LightHeroTextWrapper, LightHeroWrapper,
+} from '~/client/components/ui/Hero/LightHero';
 import { TagList } from '~/client/components/ui/Tag/TagList';
 import { HeadTag } from '~/client/components/utils/HeaderTag';
 import { useDependency } from '~/client/context/dependenciesContainer.context';
@@ -139,6 +143,13 @@ function ListeOffreJobÉtudiant({ résultatList }: ListeRésultatProps) {
 
 function BannièreJobÉtudiant() {
 	return (
-		<LightHero primaryText="Des milliers de jobs étudiants" secondaryText="sélectionnés pour vous par Pôle Emploi"/>
+		<LightHeroWrapper>
+			<LightHeroTextWrapper>
+				<h1>
+					<LightHeroPrimaryText>Des milliers de jobs étudiants</LightHeroPrimaryText>
+					<LightHeroSecondaryText>sélectionnés pour vous par Pôle Emploi</LightHeroSecondaryText>
+				</h1>
+			</LightHeroTextWrapper>
+		</LightHeroWrapper>
 	);
 }

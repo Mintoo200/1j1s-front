@@ -10,10 +10,13 @@
 
   &Title {
     @extend %headline;
-    grid-column-start: 2;
-    padding: 2rem 1rem;
     font-weight: initial;
     color: inherit;
+  }
+
+  &TextWrapper {
+    grid-column-start: 2;
+    padding: 2rem 1rem;
 
     @include media(medium) {
       padding-block: 3rem;
@@ -22,6 +25,12 @@
     @include media(xlarge) {
       padding-block: 4rem;
     }
+  }
+
+  &Description {
+    @extend %headline;
+    font-weight: initial;
+    color: inherit;
   }
 
   &Illustration {

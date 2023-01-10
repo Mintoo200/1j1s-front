@@ -3,7 +3,13 @@ import dynamic from 'next/dynamic';
 import React from 'react';
 
 import { LinkCard } from '~/client/components/ui/Card/LinkCard';
-import { Hero } from '~/client/components/ui/Hero/Hero';
+import {
+	HeroDescription,
+	HeroIllustration,
+	HeroTextWrapper,
+	HeroTitle,
+	HeroWrapper,
+} from '~/client/components/ui/Hero/Hero';
 import { HeadTag } from '~/client/components/utils/HeaderTag';
 import styles from '~/pages/index.module.scss';
 
@@ -16,10 +22,13 @@ export default function Accueil() {
 		<>
 			<HeadTag title="Toutes les solutions pour l'avenir des jeunes | 1jeune1solution" />
 			<main id="contenu">
-				<Hero image="/images/portraits-verticaux.webp">
-					<p><b>À chacun sa solution.</b></p>
-					<p>Vous avez entre 15 et 30 ans ? Découvrez toutes les solutions pour votre avenir !</p>
-				</Hero>
+				<HeroWrapper>
+					<HeroTextWrapper>
+						<HeroTitle><b>À chacun sa solution.</b></HeroTitle>
+						<HeroDescription>Vous avez entre 15 et 30 ans ? Découvrez toutes les solutions pour votre avenir !</HeroDescription>
+					</HeroTextWrapper>
+					<HeroIllustration image="/images/portraits-verticaux.webp"></HeroIllustration>
+				</HeroWrapper>
 				<section className={classNames(styles.section, styles.sectionNosOffres)}>
 					<h2 id="offres" className={styles.sectionHeader}>
 						<Icon name="brief-case" className={styles.sectionNosOffresHeaderIcon} />

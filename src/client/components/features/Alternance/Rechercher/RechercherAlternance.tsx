@@ -16,14 +16,18 @@ import {
 	RechercherSolutionLayout,
 } from '~/client/components/layouts/RechercherSolution/RechercherSolutionLayout';
 import { RésultatRechercherSolution } from '~/client/components/layouts/RechercherSolution/Résultat/RésultatRechercherSolution';
-import { LightHero } from '~/client/components/ui/Hero/LightHero';
+import {
+	LightHeroPrimaryText, LightHeroSecondaryText,
+	LightHeroTextWrapper,
+	LightHeroWrapper,
+} from '~/client/components/ui/Hero/LightHero';
 import { TagList } from '~/client/components/ui/Tag/TagList';
 import { HeadTag } from '~/client/components/utils/HeaderTag';
 import { useDependency } from '~/client/context/dependenciesContainer.context';
 import { useOffreQuery } from '~/client/hooks/useOffreQuery';
 import { OffreService } from '~/client/services/offre/offre.service';
 import { formatRechercherSolutionDocumentTitle } from '~/client/utils/formatRechercherSolutionDocumentTitle.util';
-import { ErreurMétier } from '~/server/errors/erreurMétier.types';
+import { Erreur } from '~/server/errors/erreur.types';
 import { NOMBRE_RÉSULTATS_OFFRE_PAR_PAGE, Offre } from '~/server/offres/domain/offre';
 
 
@@ -41,7 +45,7 @@ export function RechercherAlternance() {
 	const [alternanceList, setAlternanceList] = useState<Offre[]>([]);
 	const [nombreRésultats, setNombreRésultats] = useState(0);
 	const [isLoading, setIsLoading] = useState(false);
-	const [erreurRecherche, setErreurRecherche] = useState<ErreurMétier | undefined>(undefined);
+	const [erreurRecherche, setErreurRecherche] = useState<Erreur | undefined>(undefined);
 
 	useEffect(() => {
 		const queryString = stringify(router.query);
@@ -140,6 +144,13 @@ function ListeOffreAlternance({ résultatList }: ListeRésultatProps) {
 
 function BannièreAlternance() {
 	return (
-		<LightHero primaryText="Des milliers d’alternances" secondaryText="sélectionnés pour vous par Pôle Emploi"/>
+		<LightHeroWrapper>
+			<LightHeroTextWrapper>
+				<h1>
+					<LightHeroPrimaryText>Des milliers d’alternances</LightHeroPrimaryText>
+				</h1>
+				<LightHeroSecondaryText>sélectionnés pour vous par Pôle Emploi</LightHeroSecondaryText>
+			</LightHeroTextWrapper>
+		</LightHeroWrapper>
 	);
 }

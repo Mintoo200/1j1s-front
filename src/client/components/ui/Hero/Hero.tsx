@@ -11,6 +11,11 @@ interface HeroProps extends CommonProps {
   ariaHidden?: boolean
 }
 
+interface HeroIllustrationProps extends CommonProps {
+	image: string
+	ariaHidden?: boolean
+}
+
 export function Hero({ children, image, ariaHidden, className, ...rest }: React.PropsWithChildren<HeroProps>) {
 	const { isLargeScreen } = useBreakpoint();
 
@@ -26,4 +31,38 @@ export function Hero({ children, image, ariaHidden, className, ...rest }: React.
 			)}
 		</div>
 	);
+}
+
+export function HeroWrapper({ children, className, ...rest }: React.HTMLAttributes<HTMLDivElement>) {
+	return <div className={classNames(className, styles.hero)} {...rest}>
+		{ children }
+	</div>;
+}
+
+export function HeroTextWrapper({ children, className, ...rest }: React.PropsWithChildren<CommonProps>) {
+	return <div className={classNames(styles.heroTextWrapper, className)} {...rest}>
+		{children}
+	</div>;
+}
+
+export function HeroTitle({ children, className, ...rest }: React.PropsWithChildren<CommonProps>) {
+	return <h1 className={classNames(styles.heroTitle, className)} {...rest}>
+		{children}
+	</h1>;
+}
+
+export function HeroDescription({ children, className, ...rest }: React.HTMLAttributes<HTMLSpanElement>) {
+	return <p className={classNames(styles.heroDescription, className)} {...rest}>
+		{children}
+	</p>;
+}
+
+export function HeroIllustration({ className, image, ariaHidden, ...rest }: HeroIllustrationProps) {
+	const { isLargeScreen } = useBreakpoint();
+	if (isLargeScreen) {
+		return <div className={classNames(styles.heroIllustration, className)} {...rest}>
+			<Image src={image} alt="" layout="fill" objectFit="cover" objectPosition="top left" aria-hidden={ariaHidden}/>
+		</div>;
+	};
+	return null;
 }

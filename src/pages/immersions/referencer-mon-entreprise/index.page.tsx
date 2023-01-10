@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container } from '~/client/components/layouts/Container/Container';
-import { Hero } from '~/client/components/ui/Hero/Hero';
+import { HeroDescription, HeroTextWrapper, HeroTitle, HeroWrapper } from '~/client/components/ui/Hero/Hero';
 import { HeadTag } from '~/client/components/utils/HeaderTag';
 
 import styles from './index.module.scss';
@@ -13,14 +13,16 @@ export default function ImmersionReferenceMonEntreprisePage() {
 	return (
 		<main id="contenu">
 			<HeadTag title="je référence mon entreprise pour des immersions | 1jeune1solution"/>
-			<Hero>
-				<p><b>Je référence mon entreprise</b></p>
-				<p className={styles.heroSubtitle}>
-          Ce formulaire vous permet d‘indiquer les métiers de votre établissement ouverts aux immersions. Si votre
-          entreprise comprend plusieurs établissements, il convient de renseigner un formulaire pour chaque
-          établissement (SIRET différent).
-				</p>
-			</Hero>
+			<HeroWrapper>
+				<HeroTextWrapper>
+					<HeroTitle><b>Je référence mon entreprise</b></HeroTitle>
+					<HeroDescription className={styles.heroSubtitle}>
+						Ce formulaire vous permet d‘indiquer les métiers de votre établissement ouverts aux immersions. Si votre
+						entreprise comprend plusieurs établissements, il convient de renseigner un formulaire pour chaque
+						établissement (SIRET différent).
+					</HeroDescription>
+				</HeroTextWrapper>
+			</HeroWrapper>
 			<Container>
 				<iframe
 					className={styles.iframe}

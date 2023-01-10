@@ -21,7 +21,11 @@ import { Container } from '~/client/components/layouts/Container/Container';
 import { InstantSearchErrorBoundary } from '~/client/components/layouts/InstantSearch/InstantSearchErrorBoundary';
 import styles from '~/client/components/layouts/InstantSearch/InstantSearchLayout.module.scss';
 import { ListeDesResultats } from '~/client/components/layouts/InstantSearch/ListeDesResultats';
-import { LightHero } from '~/client/components/ui/Hero/LightHero';
+import {
+	LightHeroPrimaryText,
+	LightHeroSecondaryText,
+	LightHeroTextWrapper, LightHeroWrapper,
+} from '~/client/components/ui/Hero/LightHero';
 import { MeiliSearchCustomPagination } from '~/client/components/ui/Meilisearch/MeiliSearchCustomPagination';
 import { MessageResultatRecherche } from '~/client/components/ui/Meilisearch/MessageResultatRecherche';
 import { useSynchronizedRef } from '~/client/components/useSynchronizedRef';
@@ -82,10 +86,14 @@ export function InstantSearchLayout(props: InstantSearchLayoutProps) {
 
 	return (
 		<main id="contenu">
-			<LightHero
-				primaryText={titre}
-				secondaryText={sousTitre}
-			/>
+			<LightHeroWrapper>
+				<LightHeroTextWrapper>
+					<h1>
+						<LightHeroPrimaryText>{titre}</LightHeroPrimaryText>
+						<LightHeroSecondaryText>{sousTitre}</LightHeroSecondaryText>
+					</h1>
+				</LightHeroTextWrapper>
+			</LightHeroWrapper>
 			<InstantSearch
 				searchClient={searchClient}
 				indexName={meilisearchIndex}
