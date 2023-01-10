@@ -44,7 +44,7 @@ export const AnnonceDeLogement = (props : HitProps<AnnonceDeLogementIndexee>) =>
 	);
 };
 
-const CardImage = (props: { imageListUrl: [Image]} ) => {
+const CardImage = (props: { imageListUrl: Array<string>} ) => {
 	const { imageListUrl } = props;
 
 	if (imageListUrl.length === 0) return <CardComponent.Image src={'/images/defaut-logement.webp'} className={styles.CardImageWrapper}/>;
@@ -52,7 +52,7 @@ const CardImage = (props: { imageListUrl: [Image]} ) => {
 	return <CardAnnonceCarousel imageListUrl={imageListUrl} />;
 };
 
-const CardAnnonceCarousel = (props: { imageListUrl: [Image]} ) => {
+const CardAnnonceCarousel = (props: { imageListUrl: Array<string>} ) => {
 	const { imageListUrl } = props;
 	const formattedList = imageListUrl.map((url) => ({ alt: '', src: url }));
 
