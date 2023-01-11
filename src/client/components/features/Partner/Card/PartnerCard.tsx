@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 
 import styles from '~/client/components/features/Partner/Card/PartnerCard.module.scss';
+import { HtmlHeadingTag } from '~/client/components/props';
 import { CardComponent } from '~/client/components/ui/Card/AbstractCard/CardComponent';
 import { Icon } from '~/client/components/ui/Icon/Icon';
 import { Link } from '~/client/components/ui/Link/Link';
@@ -35,6 +36,7 @@ interface PartnerCardProps {
 	link: string
 	linkLabel: string
 	title?: string
+	titleAs?: HtmlHeadingTag
 }
 
 export function PartnerCard(props: PartnerCardProps & React.HTMLAttributes<HTMLLinkElement>) {
@@ -66,7 +68,7 @@ export function PartnerCard(props: PartnerCardProps & React.HTMLAttributes<HTMLL
 			<CardComponent layout={isLargeScreen ? 'horizontal' : 'vertical'}>
 				<CardComponent.Image className={styles.cardLogo} src={logo} aria-hidden/>
 				<CardComponent.Content className={styles.cardBody}>
-					<CardComponent.Title titleAs={'h3'} className={styles.cardBody__Title}>{title}</CardComponent.Title>
+					<CardComponent.Title className={styles.cardBody__Title}>{title}</CardComponent.Title>
 					<p>
 						{headline && <strong className={classNames(styles.cardHeadline, appearanceLinkBold)}>{headline}</strong>}
 						{description}

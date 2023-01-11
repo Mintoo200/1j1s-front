@@ -64,8 +64,8 @@ function CardImage({ className, src, ...rest }: { src: string, ariaHidden?: bool
 	);
 }
 
-function CardTitle({ children, className, id, titleAs }: { titleAs: HtmlHeadingTag } & React.HTMLAttributes<HTMLTitleElement>) {
-	return React.createElement(titleAs, { className: classNames(styles.cardTitle, className), id }, children );
+function CardTitle({ children, className, id, titleAs }: { titleAs?: HtmlHeadingTag } & React.HTMLAttributes<HTMLTitleElement>) {
+	return React.createElement(titleAs || 'h3', { className: classNames(styles.cardTitle, className), id }, children );
 }
 
 CardComponent.Button = CardButton;
