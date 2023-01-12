@@ -22,6 +22,7 @@ const uneAnnonceDeLogement: AnnonceDeLogementIndexee = {
 	surfaceAAfficher: 'de 70 à 71m2',
 	titre: 'Appartement à louer',
 	type: 'appartement',
+	typeBien: 'T1',
 	url: 'https://www.immo.com',
 };
 
@@ -76,12 +77,10 @@ describe('Annonce Component', () => {
 		expect(localisation).toBeInTheDocument();
 	});
 
-	it('contient le lien externe de l‘annonce', async () => {
+	it('contient le lien vers le détail de l‘annonce', async () => {
 		await render(<AnnonceDeLogement hit={uneAnnonceDeLogement}/>);
-		const urlExterne = 'https://www.immo.com';
 		const url = screen.getByRole('link');
 		expect(url).toBeInTheDocument();
-		expect(url).toHaveAttribute('href', urlExterne);
-		expect(url).toHaveAttribute('target', '_blank');
+		expect(url).toHaveAttribute('href', '/annonces/un-slug-appart-a-louer');
 	});
 });

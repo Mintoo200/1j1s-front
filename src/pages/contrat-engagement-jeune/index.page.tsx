@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { TémoignageKévin, TémoignageLatifa } from '~/client/components/features/ContratEngagementJeune//Témoignages/Témoignages';
 import Accompagnement from '~/client/components/features/ContratEngagementJeune/Accompagnement/Accompagnement';
 import Actions from '~/client/components/features/ContratEngagementJeune/Actions/Actions';
 import Allocations from '~/client/components/features/ContratEngagementJeune/Allocations/Allocations';
@@ -10,6 +9,7 @@ import Rappel from '~/client/components/features/ContratEngagementJeune/DemandeD
 import PourquoiCEstFaitPourMoi from '~/client/components/features/ContratEngagementJeune/Pourquoi/PourquoiCEstFaitPourMoi';
 import QuEstCeQueCEst from '~/client/components/features/ContratEngagementJeune/QuEstCeQueCest/QuEstCeQueCEst';
 import QuEstCeQueJyGagne from '~/client/components/features/ContratEngagementJeune/QuEstCeQueJyGagne/QuEstCeQueJyGagne';
+import { TémoignageKévin, TémoignageLatifa } from '~/client/components/features/ContratEngagementJeune/Témoignages/Témoignages';
 import { HeadTag } from '~/client/components/utils/HeaderTag';
 
 export default function ContratEngagementJeune() {
